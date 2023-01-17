@@ -1,0 +1,426 @@
+:root{
+                                        /* COLORS */
+                                        
+--Pink: hsl(322, 100%, 66%);
+--primary-100: hsl(0, 0%, 100%);
+--primary-900: hsl(0, 0%, 0%);
+--Pink-hover: hsla(322, 100%, 66%, 0.2);
+--Light-Pink: hsla(321, 100%, 78%, 0.565);
+--Light-Red: hsl(0, 100%, 63%);
+--VeryDarkCyan: hsl(192, 100%, 9%);
+--VeryPaleBlue: hsl(207, 100%, 98%);
+--light-gray: #919294;
+
+                                        /* TYPO */
+
+--ff-headings: 'Poppins', sans-serif;
+--ff-body: 'Open Sans', sans-serif;
+
+--fs-regular: .85rem;
+--fs-medium: 1.25rem;
+--fs-medium-large: 1.5rem;
+--fs-large: 3.5rem;
+--fs-xtra-large: 5rem;
+
+--fw-regular: 400;
+--fw-semi-bold: 600;
+--fw-bold: 700;
+}
+
+/*///////////////////////////////////////// 
+                                            GLOBAL & RESET
+/////////////////////////////////////////*/
+
+                                        /* Box sizing rules */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+    
+                                        /* Remove ALL margin */
+    * {
+      margin: 0;
+      padding: 0;
+      font: inherit;
+    }
+    
+    /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+    ul[role='list'],
+    ol[role='list'] {
+      list-style: none;
+    }
+    
+    /* Set core root defaults */
+    html:focus-within {
+      scroll-behavior: smooth;
+    }
+    
+    html,
+    body{
+        height: 100vh;
+    }
+    
+                                            /* body defaults */
+    body {
+        font-family: var(--ff-body);
+        font-size: var(--fs-regular);
+        text-rendering: optimizeSpeed;
+        line-height: 1.8;
+    }
+    
+                                                /* A elements that don't have a class get default styles */
+    a:not([class]) {
+      text-decoration-skip-ink: auto;
+    }
+    
+                                                /* IMAGES*/
+    img,
+    picture {
+      max-width: 100%;
+      display: block;
+    }
+    
+    ul,
+    li,
+    a{
+        text-decoration: none;
+        list-style: none;
+        cursor: pointer;
+    }
+    
+    button{
+        outline: none;
+        border: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    
+    /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+    @media (prefers-reduced-motion: reduce) {
+      html:focus-within {
+       scroll-behavior: auto;
+      }
+      
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    .heading{
+      font-family: var(--ff-headings);
+      font-size: var(--fs-medium-large);
+    }
+
+/*///////////////////////////////////////// 
+                                            MAIN CONTAINER
+/////////////////////////////////////////*/
+
+
+:is(.header, .hero--container){
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+/*///////////////////////////////////////// 
+                                            BUTTONS
+/////////////////////////////////////////*/
+
+.btn__nav{                              /*BTN NAV*/
+  border: 1px solid var(--Pink);
+  color: var(--Pink);
+  padding: .5em 1.5em;
+  border-radius: 2em;
+  transition: all 350ms ease-in-out;
+}
+
+.btn__nav:hover,                          /*BTN NAV HOVER*/
+.btn__nav:focus{
+  opacity: .75;
+  box-shadow: 0 0 0 3px var(--Pink-hover);
+}
+
+:is(.btn__header, .btn__callout){          /*BTN HEADER & CALLOUT*/
+  background: var(--Pink);
+  color: white;
+  padding: .5em 2em;
+  border-radius: 2em;
+  box-shadow: 0 .15rem 1rem var(--Light-Pink);
+  transition: all 350ms ease-in-out;
+}
+
+:is(.btn__header, .btn__callout, .footer__news-btn):hover{    /*BTN HEADER & CALLOUT HOVER*/
+  opacity: .75;
+}
+
+.footer__news-btn{                          /*BTN FOOTER */
+  color: var(--primary-100);
+  background: var(--Pink);
+  padding: .5em 2em;
+  border-radius: .5rem;
+  align-self: flex-end;
+  box-shadow: none;
+}
+
+/*///////////////////////////////////////// 
+                                            HEADER CONTAINER
+/////////////////////////////////////////*/
+
+/* NAV */
+
+.nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo{                                  /*LOGO*/
+  width: 5.9rem;
+}
+
+/* HEADER */
+
+.header--content{
+  padding-inline: 1.25rem;
+  text-align: center;
+  margin-block: 7.6rem;
+}
+
+.header__title{
+  margin-bottom: 2.18rem;
+}
+
+.header__info{
+  margin: 0 auto 3.25rem;
+  max-width: 37.5rem;
+}
+.btn__header{
+  margin-bottom: 6.5rem;
+}
+
+.header__image{
+  margin: 0 auto 7.7rem;
+}
+
+.showcase--section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 10rem;
+  margin: 5rem auto;
+}
+
+.icon{
+  align-self: flex-start;
+}
+
+.header__subtitle{
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-large);
+}
+
+.subtitle__info{
+  color: var(--light-gray);
+}
+
+                                  /*HEADER MEDIA QUERY*/
+
+@media screen and (min-width: 768px){
+  .showcase--container{
+    display: flex;
+  }
+  .showcase--section{
+    width: 13rem;
+  }
+
+  .logo{                                  /*LOGO*/
+    width: 15rem;
+  }
+
+  .header__subtitle{
+    font-size: var(--fs-xtra-large);
+  }
+
+  .subtitle__info{
+    font-size: var(--fs-medium);
+  }
+}
+
+/*///////////////////////////////////////// 
+                                            HERO CONTAINER
+/////////////////////////////////////////*/
+
+.hero--container{
+  text-align: center;
+}
+
+.hero--container > section{
+  margin-bottom: 15.6rem;
+}
+
+.hero--section > img{
+  margin: 0 auto 4.6rem;
+}
+
+.hero--section > h3{
+  margin-bottom: .75rem;
+}
+
+.btn__callout{
+  margin-top: 2.8rem;
+}
+
+@media screen and (min-width:768px){
+  .hero--section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .hero__image,
+  .hero__sub-section{
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .hero--section:nth-child(odd){
+    flex-direction: row-reverse;
+  }
+}
+
+/*///////////////////////////////////////// 
+                                            FOOTER CONTAINER
+/////////////////////////////////////////*/
+
+.footer{
+  background-color: var(--primary-900);
+  color: var(--primary-100);
+  position: relative;
+}
+
+.footer__info-wrapper{
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.footer__image{
+  position: absolute;
+  top: -3rem;
+  width: 100%;
+  height: 3rem;
+}
+
+.footer__image-desktop{
+  position: absolute;
+  top: -2rem;
+  width:100%;
+  height: 3rem;
+}
+
+:is(.footer--news-container, .footer--info-container){
+  padding: 1.5rem;
+}
+
+.footer--news-container{
+  padding: 5rem 1.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.footer-input-btn{
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__input{
+  outline: none;
+  border: 0;
+  border-radius: .5rem;
+  padding: .65em;
+  margiN: 2rem 0 1rem;
+  width: 100%;
+}
+.footer__logo{
+  fill: var(--primary-100);
+  width: 240px;
+  height: 50px;
+  transform: scale(.90);
+}
+
+.footer__info{
+  margin-bottom: 2.5rem;
+}
+
+.contact--info{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  margin-bottom: 1.5rem;
+}
+
+:is(.phone__svg, .email__svg){
+  font-size: 1.35rem;
+}
+
+.social-media-container{
+  margin: 3.25rem 0 ;
+}
+
+:is(.facebook__svg, .insta__svg, .twitter__svg){
+  font-size: 1.75rem;
+  margin-right: .6rem;
+}
+
+:is(.facebook__svg, .insta__svg, .twitter__svg){
+  transition: all 350ms ease-in-out;
+}
+
+:is(.facebook__svg, .insta__svg, .twitter__svg):hover{
+  color: rgb(41, 179, 253);
+}
+
+                                          /* FOOTER  MEDIA QUERY */
+
+@media screen and (min-width:768px) {
+  .footer__info-wrapper{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-content: flex-start;
+
+    padding-inline: 7.5rem;
+  }
+
+  .footer-input-btn{
+    margin-top: 2rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .footer__input{
+    margin: 0;
+  }
+
+  .footer--info-container{
+    max-width: 18.75rem;
+  }
+  .footer__info-wrapper > *{
+    flex-basis: 32.8rem;
+    margin-top: 5rem;
+  }
+  .footer--news-container{
+    margin-top: 0;
+  }
+}
